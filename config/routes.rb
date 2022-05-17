@@ -6,4 +6,11 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   root to: "home#index"
+
+  get 'foods', to: "foods#index"
+  get 'foods/new', to: "foods#new"
+  post 'foods', to: "foods#create"
+  delete 'foods/:id', to: "foods#destroy"
+
+  # resource :foods, only: [:index, :new, :create, :destroy]
 end
