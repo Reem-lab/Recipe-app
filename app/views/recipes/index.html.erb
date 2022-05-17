@@ -1,0 +1,13 @@
+<% if @recipes.any? %>
+  <ul class="container">
+    <% @recipes.each do |recipe| %>
+      <%= render partial: "shared/recipe_card", locals: {recipe: recipe} %>
+    <% end %>
+  </ul>
+<% else %>
+  <div class="card mt-4">
+    <div class="card-body">
+      <p class="card-text">You don't have any recipes.</p>
+    </div>
+  </div>
+<% end %>
