@@ -1,8 +1,17 @@
-<ul>
-  <% @recipes.each do |recipe| %>
-    <li>
-      <p><%= recipe.name %></p>
-      <p><%= recipe.description %></p>
-    </li>
-  <% end %>
-</ul>
+<% if @recipes.any? %>
+  <ul>
+    <% @recipes.each do |recipe| %>
+      <li>
+        <div>
+          <p><%= recipe.name %></p>
+          <%= button_to "Delete", recipe_path(recipe.id), method: :delete %>
+        </div>
+        <p><%= recipe.description %></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <div>
+    <p>You don't have any recipes.</p>
+  </div>
+<% end %>

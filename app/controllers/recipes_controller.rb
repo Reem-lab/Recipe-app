@@ -3,4 +3,9 @@ class RecipesController < ApplicationController
     @current_user = current_user
     @recipes = @current_user.recipes
   end
+
+  def destroy
+    @recipe = Recipe.find_by_id(params[:id])
+    redirect_to recipes_path if @recipe.destroy
+  end
 end
