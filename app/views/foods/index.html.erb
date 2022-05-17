@@ -1,0 +1,28 @@
+
+<div class="list--food-table">
+<div class="add-food ">
+ <%= link_to "Add food", "foods/new", class: "mt-4 btn btn-success"%>
+ </div>
+<table class="table table-success table-striped"">
+  <thead>
+    <tr>
+      <th scope="col">Food</th>
+      <th scope="col">Measurement unit</th>
+      <th scope="col">Unit price</th>
+      <th scope="col">actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do | food | %>
+     <tr>
+      <th scope="row"> <%= food.name %> </th>
+      <td> <%= food.measurement_unit %> </td>
+      <td> <%= food.price %></td>
+      <td>
+        <%= button_to "Delete", "foods/#{food.id}" , method: :delete %>
+      </td>
+     </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
