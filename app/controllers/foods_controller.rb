@@ -12,15 +12,15 @@ class FoodsController < ApplicationController
     @food = current_user.foods.new(food_params)
 
     if @food.save
-      redirect_to foods_path, notice: "Your Food is created successfully 💯"
+      redirect_to foods_path, notice: 'Your Food is created successfully 💯'
     else
-      flash[:alert] = "Something went wrong, Try again!"
+      flash[:alert] = 'Something went wrong, Try again!'
       render :new
     end
   end
 
   def destroy
-    @food =  Food.find(params[:id])
+    @food = Food.find(params[:id])
     @food.destroy
     redirect_to foods_path
   end
@@ -30,5 +30,4 @@ class FoodsController < ApplicationController
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price)
   end
-
 end
