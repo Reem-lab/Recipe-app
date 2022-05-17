@@ -1,7 +1,7 @@
 <li class="card mt-4">
   <div class="card-body">
     <h3 class="card-title"><%= recipe.name %></h3>
-    <p class="card-text"><%= recipe.description %></p>
+    <p class="card-text"><%= truncate(recipe.description, length: 70, separator: ' ') %></p>
     <%= button_to "Delete", recipe_path(recipe.id), method: :delete, class: "btn border-danger text-danger"%>
   </div>
 </li>
