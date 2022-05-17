@@ -1,4 +1,4 @@
-first_user = User.create(name: 'Tom')
+first_user = User.create(name: 'Tom', email: "tom@gmail.com", password: "123456")
 
 apples = Food.create(name: 'Apple', measurement_unit: 'units', price: 5.0, user_id: first_user.id)
 tomatoes = Food.create(name: 'Tomato', measurement_unit: 'units', price: 2.0, user_id: first_user.id)
