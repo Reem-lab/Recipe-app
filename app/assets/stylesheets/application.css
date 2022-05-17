@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+.list--food-table {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.add-food {
+  margin-bottom: 80px;
+}

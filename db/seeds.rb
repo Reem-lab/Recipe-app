@@ -12,4 +12,8 @@ first_recipe = Recipe.create(name: 'Recipe 2', preparation_time: '1h', cooking_t
                              description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
                              public: true, user_id: first_user.id)
 
+first_recipe2 = Recipe.create(name: 'Recipe 2', preparation_time: '5h',
+                                 cooking_time: '2h', description: 'Recipe 2 Description',
+                                 public: false, user_id: first_user.id)
+
 RecipeFood.create(quantity: 1, recipe_id: first_recipe.id, food_id: apples.id)
