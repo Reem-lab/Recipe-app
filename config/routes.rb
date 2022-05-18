@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :foods, only: [:index, :new, :create, :destroy]
   get 'public_recipes', to: 'recipes#public_recipes'
 
+  get 'shopping_list', to: 'shopping_list#index'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   match 'recipes/:recipe_id' => 'recipes#toggle_public', as: :toggle_public, via: :patch
