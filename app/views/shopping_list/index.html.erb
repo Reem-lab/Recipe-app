@@ -16,8 +16,8 @@
       <% @foods.each do | ingredient | %>
        <tr>
         <th scope="row"> <%= ingredient.name %> </th>
-        <td><%= ingredient.get_total_quantity_recipes %> <%= ingredient.measurement_unit %></td>
-        <td> <%= ingredient.price * ingredient.get_total_quantity_recipes %></td>
+        <td><%= ingredient.total_quantity_recipes %> <%= ingredient.measurement_unit %></td>
+        <td> <%= ingredient.price * ingredient.total_quantity_recipes %></td>
        </tr>
       <% end %>
     </tbody>

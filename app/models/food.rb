@@ -3,8 +3,7 @@ class Food < ApplicationRecord
   has_many :recipe_foods, dependent: :destroy
   has_many :recipes, through: :recipe_foods
 
-  def get_total_quantity_recipes
-     recipe_foods.map { | f | f.quantity }.sum
+  def total_quantity_recipes
+    recipe_foods.map(&:quantity).sum
   end
-
 end
