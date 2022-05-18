@@ -1,5 +1,4 @@
 class RecipeFoodsController < ApplicationController
-  load_and_authorize_resource
   def new
     @current_user = current_user
     @recipe = Recipe.find_by_id(params[:recipe_id])
