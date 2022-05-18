@@ -34,6 +34,11 @@ class RecipesController < ApplicationController
     redirect_to recipe_path(@recipe.id), notice: 'Recipe updated' if @recipe.save
   end
 
+  def public_recipes
+    @current_user = current_user
+    @recipes = Recipe.where(public: true)
+  end
+
   def destroy
     @recipe = Recipe.find_by_id(params[:id])
     redirect_to recipes_path if @recipe.destroy
