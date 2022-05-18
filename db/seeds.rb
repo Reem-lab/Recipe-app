@@ -18,3 +18,7 @@ third_recipe = Recipe.create(name: 'Recipe 3', preparation_time: '1h', cooking_t
 
 RecipeFood.create(quantity: 1, recipe_id: first_recipe.id, food_id: tomatoes.id)
 RecipeFood.create(quantity: 2, recipe_id: first_recipe.id, food_id: potatoes.id)
+RecipeFood.create(quantity: 4, recipe_id: second_recipe.id, food_id: potatoes.id)
+RecipeFood.create(quantity: 8, recipe_id: second_recipe.id, food_id: apples.id)
+RecipeFood.create(quantity: 9, recipe_id: third_recipe.id, food_id: potatoes.id)
+RecipeFood.create(quantity: 7, recipe_id: third_recipe.id, food_id: tomatoes.id)
