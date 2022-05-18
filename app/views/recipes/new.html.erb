@@ -1,0 +1,33 @@
+<h2>Add a new recipe</h2>
+
+<%= form_with model: @recipe, url: recipes_path do |f| %>
+
+    <div class="field">
+    <%= f.label :name, class:"mt-2" %><br />
+    <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "simple dish" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :preparation_time, class:"mt-2" %><br />
+    <%= f.text_field :preparation_time, autofocus: true, class: "form-control", placeholder: "1h" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cooking_time, class:"mt-2" %><br />
+    <%= f.text_field :cooking_time, autofocus: true, class: "form-control", placeholder: "3h" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description , class:"mt-2" %>
+    <%= f.text_area :description, autocomplete: "description" , class: "form-control", placeholder: "steps here..." %>
+  </div>
+
+  <div class="form-check">
+    <%= f.label :public ,class: "form-check-label"  %>
+    <%= f.check_box :public, class: "form-check-input" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Add recipe", class: "mt-4 btn btn-success" %>
+  </div>
+<% end %>

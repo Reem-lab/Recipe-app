@@ -1,3 +1,6 @@
+ <div class="d-flex justify-content-end">
+    <%= link_to "Add recipe", "recipes/new", class: "btn btn-success"%>
+  </div>
 <% if @recipes.any? %>
   <ul class="container">
     <% @recipes.each do |recipe| %>
