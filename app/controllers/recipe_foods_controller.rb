@@ -2,7 +2,7 @@ class RecipeFoodsController < ApplicationController
   def new
     @current_user = current_user
     @recipe = Recipe.find_by_id(params[:recipe_id])
-    @foods = Food.all
+    @available_foods = current_user.foods.reject { |f| @recipe.foods.include?(f) }
     @ingredient = RecipeFood.new
   end
 
