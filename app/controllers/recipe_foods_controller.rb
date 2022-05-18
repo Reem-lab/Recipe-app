@@ -1,5 +1,19 @@
 class RecipeFoodsController < ApplicationController
+  def new
+    @current_user = current_user
+    @recipe = Recipe.find_by_id(params[:recipe_id])
+    @foods = Food.all
+    @ingredient = RecipeFood.new
+  end
+
   def create
+    @recipe = Recipe.find_by_id(params[:recipe_id])
+    @recipe_food = RecipeFood.new(recipe_food_params.merge(recipe_id: @recipe.id))
+    if @recipe_food.save
+      redirect_to recipe_path(@recipe.id)
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -10,5 +24,11 @@ class RecipeFoodsController < ApplicationController
       flash[:alert] = 'Ingedient deletion unsucessful.'
     end
     redirect_to recipe_path(params[:recipe_id])
+  end
+
+  private
+
+  def recipe_food_params
+    params.require(:recipe_food).permit(:quantity, :food_id)
   end
 end
