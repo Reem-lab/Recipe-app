@@ -6,16 +6,14 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find_by_id(params[:id])
-    @ingredients = @recipe.foods
+    @ingredients = @recipe&.recipe_foods
   end
 
   def toggle_public
     @recipe = Recipe.find_by_id(params[:recipe_id])
     @recipe.public = !@recipe.public
 
-    if @recipe.save
-    redirect_to recipe_path(@recipe.id), notice: 'Recipe updated'
-    end
+    redirect_to recipe_path(@recipe.id), notice: 'Recipe updated' if @recipe.save
   end
 
   def destroy

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  get 'recipe_foods/create'
+  get 'recipe_foods/destroy'
   devise_for :users
-  resources :recipes, only: [:index, :show, :destroy, :put]
+  resources :recipes, only: [:index, :show, :destroy, :put] do
+    resources :recipe_foods, only: [:create, :destroy]
+  end
   resources :foods, only: [:index, :new, :create, :destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
