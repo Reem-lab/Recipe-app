@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -10,7 +8,6 @@ class Ability
     can :manage, Recipe, user_id: user.id
     can :manage, RecipeFood, user_id: user.id
     can :manage, Food, user_id: user.id
-
 
     # Define abilities for the passed in user here. For example:
     #
