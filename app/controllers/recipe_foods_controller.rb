@@ -1,4 +1,5 @@
 class RecipeFoodsController < ApplicationController
+  load_and_authorize_resource
   def new
     @current_user = current_user
     @recipe = Recipe.find_by_id(params[:recipe_id])
@@ -13,6 +14,23 @@ class RecipeFoodsController < ApplicationController
       redirect_to recipe_path(@recipe.id)
     else
       render :new
+    end
+  end
+
+  def edit
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe_food = RecipeFood.find(params[:id])
+  end
+
+  def update
+    @recipe_food = RecipeFood.find(params[:id])
+    @recipe_food.update(quantity: params[:recipe_food][:quantity])
+
+    if @recipe_food.save
+      redirect_to recipe_path(params[:recipe_id]), notice: 'Your quantity updated successfully'
+    else
+      flash[:alert] = 'something went wrong, try again!!'
+      render :edit
     end
   end
 
