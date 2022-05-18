@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @current_user = current_user
     @recipe = Recipe.find_by_id(params[:id])
     @ingredients = @recipe&.recipe_foods
   end
