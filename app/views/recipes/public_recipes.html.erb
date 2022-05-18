@@ -1,0 +1,13 @@
+<h2> Public Recipes</h2>
+
+<% @recipes.each do |recipe| %>
+<li class="card mt-4 bg-light">
+  <div class="card-body">
+    <h3 class="card-title">
+      <%= link_to recipe.name, recipe_path(recipe.id), class:"text-decoration-none" %>
+    </h3>
+    <p class="card-text"> By: <%= recipe.user.name %></p>
+    <p> Total food items <%= recipe.foods.length %> </p>
+  </div>
+</li>
+<% end %>
