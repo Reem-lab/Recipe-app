@@ -3,13 +3,13 @@
 <p>Cooking Time: <%= @recipe.cooking_time %></p>
 <p><%= @recipe.description %></p>
 
- <% if @recipe.public %>
-      <%= button_to " Make private", toggle_public_path(@recipe.id), method: :patch, class: "btn btn-danger"  %>
-  <% else %>
-       <%= button_to " Make public", toggle_public_path(@recipe.id), method: :patch, class: "btn btn-success"  %>
+<% if @recipe.public %>
+  <%= button_to "Make private", toggle_public_path(@recipe.id), method: :patch, class: "btn btn-danger"  %>
+<% else %>
+  <%= button_to "Make public", toggle_public_path(@recipe.id), method: :patch, class: "btn btn-success"  %>
 <% end %>
 
-<table class="table table-success table-striped mt-4">
+<table class="table table-light table-bordered mt-4">
   <thead>
     <tr>
       <th scope="col">Food</th>
@@ -25,7 +25,7 @@
       <td><%= ingredient.quantity %> <%= ingredient.food.measurement_unit %></td>
       <td> <%= ingredient.food.price * ingredient.quantity %></td>
       <td>
-        <%= button_to "Delete", recipe_recipe_food_path(@recipe.id, ingredient.id) , method: :delete, class: "btn btn-danger" %>
+        <%= button_to "Delete", recipe_recipe_food_path(@recipe.id, ingredient.id) , method: :delete, class: "btn border-danger text-danger" %>
       </td>
      </tr>
     <% end %>
