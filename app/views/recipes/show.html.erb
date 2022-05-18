@@ -29,9 +29,9 @@
         <th scope="row"> <%= ingredient.food.name %> </th>
         <td><%= ingredient.quantity %> <%= ingredient.food.measurement_unit %></td>
         <td> <%= ingredient.food.price * ingredient.quantity %></td>
-        <td>
-         <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe.id, ingredient.id), class: "btn border-danger text-danger" %>
-          <%= button_to "Delete", recipe_recipe_food_path(@recipe.id, ingredient.id) , method: :delete, class: "btn border-danger text-danger" %>
+        <td class="d-flex">
+          <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe.id, ingredient.id), class: "btn border-danger text-danger" %>
+          <%= button_to "Delete", recipe_recipe_food_path(@recipe.id, ingredient.id) , method: :delete, class: "ms-2 btn border-danger text-danger" %>
         </td>
        </tr>
       <% end %>

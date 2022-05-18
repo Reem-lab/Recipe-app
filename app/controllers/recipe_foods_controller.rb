@@ -19,20 +19,18 @@ class RecipeFoodsController < ApplicationController
   def edit
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_food = RecipeFood.find(params[:id])
-    @available_foods = current_user.foods.reject { |f| @recipe.foods.include?(f) }
   end
 
   def update
     @recipe_food = RecipeFood.find(params[:id])
-    @recipe_food.update(quantity: params[:quantity].to_i)
-    
+    @recipe_food.update(quantity: params[:recipe_food][:quantity])
+
     if @recipe_food.save
-      redirect_to recipe_path(params[:id]), notice: "Your quantity updated successfully"
+      redirect_to recipe_path(params[:recipe_id]), notice: 'Your quantity updated successfully'
     else
-      flash[:alert] = "something went wrong, try again!!"
+      flash[:alert] = 'something went wrong, try again!!'
       render :edit
     end
-
   end
 
   def destroy
