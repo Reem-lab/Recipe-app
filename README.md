@@ -46,6 +46,21 @@ Finally, use the following command to initialize the live server:
 ```
 rails s
 ```
+## How to run the tests
+
+```
+rspec spec
+```
+before you run the tests
+
+```
+rails db:seed RAILS_ENV=test
+```
+
+```
+rspec spec/models
+rspec spec/views
+```
 
 ## Authors
 
