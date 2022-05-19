@@ -22,7 +22,7 @@ RSpec.describe 'User index', type: :system do
       expect(page).to have_content('Add food')
     end
 
-    it "When I click on add foos, I am redirected to that form add food page." do
+    it 'When I click on add foos, I am redirected to that form add food page.' do
       click_link 'Add food'
       expect(page.current_path).to have_content("foods/#{food.id}")
     end

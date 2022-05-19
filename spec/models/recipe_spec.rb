@@ -4,7 +4,8 @@ RSpec.describe Recipe, type: :model do
   before(:each) do
     @u = User.new(name: 'test', email: 'test@test.com')
     @r = @u.recipes.new(name: 'boiled egg', preparation_time: 2, cooking_time: 5,
-                        description: 'Put the egg in boiling water for about 5 minutes, slightly less if you like the yolk underdone', public: true)
+                        description: 'Put the egg in boiling water for about 5 minutes,
+                        slightly less if you like the yolk underdone', public: true)
   end
   it 'should return the correct name' do
     expect(@r.name).to eq 'boiled egg'
@@ -19,6 +20,7 @@ RSpec.describe Recipe, type: :model do
   end
 
   it 'should return the description' do
-    expect(@r.description).to eq 'Put the egg in boiling water for about 5 minutes, slightly less if you like the yolk underdone'
+    expect(@r.description).to eq 'Put the egg in boiling water
+    for about 5 minutes, slightly less if you like the yolk underdone'
   end
 end
