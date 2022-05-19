@@ -48,15 +48,16 @@ rails s
 ```
 ## How to run the tests
 
-```
-rspec spec
-```
 before you run the tests
 
 ```
 rails db:seed RAILS_ENV=test
 ```
 
+```
+rspec spec
+```
+### or :
 ```
 rspec spec/models
 rspec spec/views
