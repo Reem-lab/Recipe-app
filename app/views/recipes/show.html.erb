@@ -1,0 +1,48 @@
+<h2 class="mt-4"><%= @recipe.name %></h2>
+<p>Preparation Time: <%= @recipe.preparation_time %></p>
+<p>Cooking Time: <%= @recipe.cooking_time %></p>
+<p><%= @recipe.description %></p>
+
+<% if can? :manage, @recipe %>
+<% if @recipe.public %>
+  <%= button_to "Make private", toggle_public_path(@recipe.id), method: :patch, class: "btn btn-danger"  %>
+<% else %>
+  <%= button_to "Make public", toggle_public_path(@recipe.id), method: :patch, class: "btn btn-success"  %>
+<% end %>
+<% end %>
+
+<div class="table-responsive mt-4">
+<% if can? :manage, @recipe %>
+  <div class="d-flex justify-content-end">
+    <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe.id), class: "btn btn-success"%>
+  </div>
+  <% end %>
+
+  <table class="table table-light table-bordered mt-4">
+    <thead>
+      <tr>
+        <th scope="col">Food</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Value</th>
+        <% if can? :manage, @recipe %>
+        <th scope="col">Actions</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @ingredients.each do | ingredient | %>
+       <tr>
+        <th scope="row"> <%= ingredient.food.name %> </th>
+        <td><%= ingredient.quantity %> <%= ingredient.food.measurement_unit %></td>
+        <td> <%= ingredient.food.price * ingredient.quantity %></td>
+        <% if can? :manage, @recipe %>
+        <td class="d-flex">
+          <%= link_to "Modify", edit_recipe_recipe_food_path(@recipe.id, ingredient.id), class: "btn border-danger text-danger" %>
+          <%= button_to "Delete", recipe_recipe_food_path(@recipe.id, ingredient.id) , method: :delete, class: "ms-2 btn border-danger text-danger" %>
+        </td>
+        <% end %>
+       </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

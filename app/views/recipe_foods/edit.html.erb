@@ -1,0 +1,12 @@
+<h2>Edit quantity</h2>
+
+<%= form_with model: @recipe_food, url: recipe_recipe_food_path(@recipe.id, @recipe_food.id), method: :patch do |f| %>
+  <div class="field">
+    <%= f.label :quantity, class:"mt-2" %><br />
+    <%= f.number_field :quantity, autofocus: true, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update quantity", class: "mt-4 btn btn-success" %>
+  </div>
+<% end %>

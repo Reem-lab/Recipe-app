@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">RecipeApp</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <% if @current_user %>
+          <li class="nav-item">
+            <%= link_to "My Recipes", recipes_path, class: "nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to "My Food", foods_path, class: "nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to "public recipes", "/public_recipes", class: "nav-link"%>
+          </li>
+            <li class="nav-item">
+            <%= link_to "shopping list", shopping_list_path , class: "nav-link"%>
+          </li>
+        <% end %>
+      </ul>
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <% if @current_user %>
+          <li class="nav-item">
+            <%= link_to "Log out", destroy_user_session_path , data: { method: :delete }, class: "nav-link"  %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Log in", '/users/sign_in', class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign up", '/users/sign_up', class: "nav-link"%>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

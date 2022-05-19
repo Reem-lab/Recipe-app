@@ -1,0 +1,25 @@
+<h2> shopping list </h2>
+<div>
+<p>Amount of foods items to buy :  <%= @foods.length %> </p>
+<p>Total value of foods needed : <%= @total_price %> $ </p>
+</div>
+<div class="table-responsive mt-4">
+  <table class="table table-light table-bordered mt-4">
+    <thead>
+      <tr>
+        <th scope="col">Food</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do | ingredient | %>
+       <tr>
+        <th scope="row"> <%= ingredient.name %> </th>
+        <td><%= ingredient.total_quantity_recipes %> <%= ingredient.measurement_unit %></td>
+        <td> <%= ingredient.price * ingredient.total_quantity_recipes %></td>
+       </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

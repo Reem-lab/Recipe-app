@@ -1,0 +1,23 @@
+<h2>Add a new food</h2>
+
+<%= form_with model: @food, url: foods_path do |f| %>
+
+    <div class="field">
+    <%= f.label :name, class:"mt-2" %><br />
+    <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Apple" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :measurement_unit, class:"mt-2" %><br />
+    <%= f.text_field :measurement_unit, autofocus: true, autocomplete: "measurement_unit", class: "form-control", placeholder: "K.g/g" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price , class:"mt-2" %>
+    <%= f.text_field :price, autocomplete: "price" , class: "form-control", placeholder: "LE/$" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Add food", class: "mt-4 btn btn-success" %>
+  </div>
+<% end %>

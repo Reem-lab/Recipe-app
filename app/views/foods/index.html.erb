@@ -1,0 +1,27 @@
+<div class="table-responsive mt-4">
+  <div class="d-flex justify-content-end">
+    <%= link_to "Add food", "foods/new", class: "btn btn-success"%>
+  </div>
+  <table class="table table-light table-bordered mt-4">
+    <thead>
+      <tr>
+        <th scope="col">Food</th>
+        <th scope="col">Measurement Unit</th>
+        <th scope="col">Price</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do | food | %>
+       <tr>
+        <th scope="row"> <%= food.name %></th>
+        <td><%= food.measurement_unit %></td>
+        <td><%= food.price %></td>
+        <td>
+          <%= button_to "Delete", "foods/#{food.id}" , method: :delete, class: "btn border-danger text-danger" %>
+        </td>
+       </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

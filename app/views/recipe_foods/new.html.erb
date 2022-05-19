@@ -1,0 +1,17 @@
+<h2>Add a new ingredient</h2>
+
+<%= form_with model: @ingredient, url: recipe_recipe_foods_path(@recipe.id) do |f| %>
+  <div class="field">
+    <%= f.label :quantity, class:"mt-2" %><br />
+    <%= f.number_field :quantity, autofocus: true, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :food_id, class:"mt-2" %><br />
+    <%= f.select :food_id, options_from_collection_for_select(@available_foods, 'id', 'name'), {}, { class: "form-control" }%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Add ingredient", class: "mt-4 btn btn-success" %>
+  </div>
+<% end %>
