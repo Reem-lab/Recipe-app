@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Log in session', type: :system do
+RSpec.describe 'Log in session', type: :feature do
   before :each do
     User.create(password: '123456', email: 'reem@gmail.com', confirmed_at: Time.now)
     visit new_user_session_path
@@ -15,7 +15,7 @@ RSpec.describe 'Log in session', type: :system do
 
     it 'When I click the submit button without filling
    in the username and the password, I get a detailed error.' do
-      click_on 'Log in '
+      click_button 'Log in'
       expect(page).to have_content('Invalid Email or password')
     end
 
