@@ -25,6 +25,5 @@ RSpec.describe 'Food index', type: :feature do
     it 'I can see the button add food' do
       expect(page).to have_content('Add food')
     end
-
   end
 end
