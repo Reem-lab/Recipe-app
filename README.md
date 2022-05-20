@@ -45,6 +45,12 @@ Once you have installed them, you need to use the following command to clone the
 git clone git@github.com:Reem-lab/Recipe-app.git
 ```
 
+Then install the bundle configruation by thr following command
+```
+
+bundle install
+```
+
 ### Database creation
 
 Next, use this command to create the databases:
