@@ -18,6 +18,11 @@ https://user-images.githubusercontent.com/58553711/169167658-052ebde7-76a5-41b0-
 
 [Live demo here](https://powerful-mountain-66036.herokuapp.com/)
 
+
+## Netlify Deploy
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/279cadd7-ee58-4cc4-b922-f1297c3e2949/deploy-status)](https://app.netlify.com/sites/reciperailsapp/deploys)
+
 ## Built With
 
 - Ruby
